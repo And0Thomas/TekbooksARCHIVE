@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel = "stylesheet" href = "css/style.css">
+        <p id = "name">TEKBOOKS</p>
+        <img id = "logo" src="./images/person-circle.png" alt="logo">
+        <div id = "backer" class = "rectangle"></div>
+    </head>
+
+    <body>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="scripts/bootstrap.min.js"></script>
+        <script src="scripts/script.js"></script>
+            <table id="editableTable">
+                <thead>
+                    <tr id = "hat"></tr>
+                    <tr id = "topper" >
+                        <th id = "col1"><img src="./images/Rectangle21.png" alt="whiteButton"></th>
+                        <th id = "col2">ID</th>
+                        <th id = "col3">CONTACT NAME</th>
+                        <th id = "col4">EMAIL</th>
+                        <th id = "col5">PHONE</th>
+                        <th id = "col6"></th>
+                        <th id = "col7"></th>
+                    </tr>
+                </thead>
+                <tbody id = "tbody">
+                    <!-- Rows will be added dynamically here -->
+                </tbody>
+            </table>
+
+        <button id="addRowBtn">
+            <img id = "plusperson"src="./images/person-add.png" alt="addNew">
+              New Contact
+        </button>
+        <script src="script.js"></script>
+
+    <form id="form"> 
+        <div class="search-container">
+            <input type="search" id="bar" name="q" placeholder="Search">
+            <img id = "search-icon" src="./images/searchIcon.png" alt="Search Icon" class="search-icon">
+        </div>
+
+      </form>
+    </body>
+
+</html>

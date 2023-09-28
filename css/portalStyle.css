@@ -1,0 +1,247 @@
+#name {
+    position: fixed;
+    top: -15px;
+    left: 80px;
+    right: 1094px;
+    width: 267px;
+    height: 43px;
+
+    flex-shrink: 0;
+    color: #323232;
+    text-align: center;
+    font-family: Synonym;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#logo {
+    position: fixed;
+    left: 1198px;
+    bottom: 938.4px;
+    top: 50px;
+    right: 206.51px;
+    z-index: 1;
+    width: 35.493px;
+    height: 35.548px;
+    flex-shrink: 0;
+    fill: rgba(254, 254, 254, 0.00);
+}
+
+#editableTable {
+    width: 1174px;
+    position: fixed;
+    top: 140px;
+    left: 133px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #323232;
+}
+
+#addRowBtn {
+    position: fixed;
+    left: 1099px;
+    top: 166px;
+    width: 173px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 17px;
+    background: #FBFBFB;
+
+    color: #323232;
+    text-align: left;
+    padding-left: 43px;
+    font-family: Poppins Variable;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+table {
+    border-radius: 10px;
+    background: #323232;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    color: #FBFBFB;
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    width: 1200px;
+}
+
+#backer{
+    width: 1174px;
+}
+
+.rectangle {
+    position: fixed;
+    top: 140px;
+    left: 133px;
+    width: 1174px;
+    
+    border-radius: 10px;
+    background: #323232;
+
+    height: 635.5px;
+    width: 1200px;
+}
+
+th , td {
+    color: #FBFBFB;
+    padding: 8px;
+    text-align: left;
+}
+
+#plusperson {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+}
+
+#bar {
+    color: #FBFBFB;
+    font-family: Poppins Variable;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#hat {
+    height: 108px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #323232;
+}
+
+#bar {
+    position: fixed;
+    top: 180px;
+    left: 168px;
+
+    width: 357px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    border: 2px solid #FBFBFB;
+    color: white;
+    background: rgba(217, 217, 217, 0.00);
+}
+
+#bar::placeholder{
+    color: #FBFBFB;
+    position: absolute;
+    left: 45px;
+}
+
+#topper{
+    border-radius: 10px 10px 0px 0px;
+    background: #212121;
+}
+
+
+#col1 {
+    width: 8%;
+    color: #FBFBFB;
+    font-family: Poppins Variable;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#col2 {
+    width: 10%;
+    color: #FBFBFB;
+    font-family: Poppins Variable;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#col3 {
+    width: 19%;
+    color: #FBFBFB;
+    font-family: Poppins Variable;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#col4 {
+    width: 22%;
+    color: #FBFBFB;
+    font-family: Poppins Variable;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#col5 {
+    width: 22%;
+    color: #FBFBFB;
+    font-family: Poppins Variable;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#col6 {
+    width: 7%;
+    color: #FBFBFB;
+    font-family: Poppins Variable;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#col7 {
+    width: 6%;
+    color: #FBFBFB;
+    font-family: Poppins Variable;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+th.header-cell {
+    border: none;
+}
+
+tr {
+    border-top: 1px solid black;
+}
+
+#backing{
+    position: fixed;
+    top: 140px;
+    left: 133px;
+
+    width: 1174px;
+    height: 708px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #323232;
+}
+
+.search-icon{
+    position: fixed;
+    top: 190px;
+    left: 180px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+body {
+    background-color: #DDD0C8;
+}
