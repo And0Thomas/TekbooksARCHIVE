@@ -1,48 +1,60 @@
-#name {
-    position: fixed;
-    top: -15px;
-    left: 80px;
-    right: 1094px;
-    width: 267px;
-    height: 43px;
-
-    flex-shrink: 0;
-    color: #323232;
-    text-align: center;
-    font-family: Synonym;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+@font-face {
+    font-family: 'Poppins';
+    src: url(../signup_login/fonts/Poppins-Variable.ttf);
 }
 
-#logo {
-    position: fixed;
-    left: 1198px;
-    bottom: 938.4px;
-    top: 50px;
-    right: 206.51px;
-    z-index: 1;
-    width: 35.493px;
-    height: 35.548px;
-    flex-shrink: 0;
-    fill: rgba(254, 254, 254, 0.00);
+@font-face {
+    font-family: 'Satoshi';
+    src: url(../signup_login/fonts/Satoshi-Variable.ttf);   
+}
+
+@font-face {
+    font-family: 'Synonym';
+    src: url(../signup_login/fonts/Synonym-Bold.otf);
+}
+
+.logo {
+    font-family: 'Synonym';
+    font-size: 2rem;
+    padding-top: 1rem;
+    padding-left: 1.5rem;
+    color: black;
+    position: absolute;
+}
+
+#pencil , #trashCan{  
+    background: none;
+    padding: 0;
+    cursor: pointer;
+
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px; 
 }
 
 #editableTable {
-    width: 1174px;
-    position: fixed;
-    top: 140px;
-    left: 133px;
-    flex-shrink: 0;
+    border-collapse: collapse;
+    width: 70%; 
     border-radius: 10px;
     background: #323232;
+    overflow-x: auto;
+    overflow-y: scroll;
+    max-height: 300px;
+    position: absolute;
+    top: 10%; 
+    left: 50%; 
+    transform: translateX(-50%);
 }
 
-#addRowBtn {
-    position: fixed;
-    left: 1099px;
-    top: 166px;
+tbody {
+    display: block;
+    overflow-y: scroll;
+    height: 300px;
+}
+
+#newAddBtn {
     width: 173px;
     height: 42px;
     flex-shrink: 0;
@@ -59,35 +71,6 @@
     line-height: normal;
 }
 
-table {
-    border-radius: 10px;
-    background: #323232;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    color: #FBFBFB;
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-    width: 1200px;
-}
-
-#backer{
-    width: 1174px;
-}
-
-.rectangle {
-    position: fixed;
-    top: 140px;
-    left: 133px;
-    width: 1174px;
-    
-    border-radius: 10px;
-    background: #323232;
-
-    height: 635.5px;
-    width: 1200px;
-}
-
 th , td {
     color: #FBFBFB;
     padding: 8px;
@@ -100,30 +83,40 @@ th , td {
     top: 10px;
 }
 
+#hat {
+    border: none;
+    height: 108px;
+    border-radius: 10px;
+    background: #323232;
+    z-index: 4;
+}
+
+#blackTable {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    text-align: center;
+    height: 100vh; /* Set the height of the container to the viewport height */
+}
+
 #bar {
+    position: absolute;
+    z-index: 3;
+    margin-left: 0%;
+    margin-top: 0%;
+    text-indent: 40px; 
     color: #FBFBFB;
+
     font-family: Poppins Variable;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-}
-
-#hat {
-    height: 108px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: #323232;
-}
-
-#bar {
-    position: fixed;
-    top: 180px;
-    left: 168px;
-
-    width: 357px;
-    height: 45px;
-    flex-shrink: 0;
+    
+    width: 25%;
+    margin-bottom: 10px;
+    height: 45px; 
     border-radius: 12px;
     border: 2px solid #FBFBFB;
     color: white;
@@ -132,6 +125,7 @@ th , td {
 
 #bar::placeholder{
     color: #FBFBFB;
+    text-indent: 0px;
     position: absolute;
     left: 45px;
 }
@@ -141,107 +135,52 @@ th , td {
     background: #212121;
 }
 
-
-#col1 {
-    width: 8%;
+.column{
     color: #FBFBFB;
     font-family: Poppins Variable;
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+#col1 {
+    width: 8%;
 }
 
 #col2 {
     width: 10%;
-    color: #FBFBFB;
-    font-family: Poppins Variable;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
 }
 
 #col3 {
     width: 19%;
-    color: #FBFBFB;
-    font-family: Poppins Variable;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
 }
 
 #col4 {
     width: 22%;
-    color: #FBFBFB;
-    font-family: Poppins Variable;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
 }
 
 #col5 {
     width: 22%;
-    color: #FBFBFB;
-    font-family: Poppins Variable;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
 }
 
 #col6 {
     width: 7%;
-    color: #FBFBFB;
-    font-family: Poppins Variable;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
 }
 
 #col7 {
     width: 6%;
-    color: #FBFBFB;
-    font-family: Poppins Variable;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-th.header-cell {
-    border: none;
 }
 
 tr {
     border-top: 1px solid black;
 }
 
-#backing{
-    position: fixed;
-    top: 140px;
-    left: 133px;
-
-    width: 1174px;
-    height: 708px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: #323232;
-}
-
-.search-icon{
-    position: fixed;
-    top: 190px;
-    left: 180px;
-}
-
-button {
-    margin-top: 10px;
-}
-
 body {
     background-color: #DDD0C8;
+}
+
+#save{
+    width: 33px;
+    height: 3px;
 }

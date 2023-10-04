@@ -17,7 +17,7 @@ function doLogin()
 
 	if (username == "" || password == "")
 	{
-		document.getElementById("loginResult").innerHTML = "All fields required.";
+		window.alert("Incorrect Username/Password");
 		return;
 	}
 	
@@ -41,7 +41,7 @@ function doLogin()
 				userid = jsonObject.id;
 				if( userid < 1 )
 				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					window.alert("Incorrect Username or Password");
 					return;
 				}
 				firstname = jsonObject.firstName;
@@ -49,7 +49,7 @@ function doLogin()
 
 				saveCookie();
 
-				window.location.href = "test.php";
+				window.location.href = "portal.html";
 				console.log(userid);
 				console.log(firstname);
 				console.log(lastname);
@@ -62,7 +62,7 @@ function doLogin()
 	}
 	catch(err)
 	{
-		document.getElementById("loginResult").innerHTML = err.message;
+		window.alert("Error in Login");
 	}
 
 }
@@ -76,7 +76,7 @@ function doSignUp()
 
 	if (username == "" || password == "" || lastname == "" || firstname == "")
 	{
-		document.getElementById("signupResult").innerHTML = "All fields required.";
+		window.alert("All Fields Required");
 		return;
 	}
 	
@@ -104,7 +104,7 @@ function doSignUp()
 				
 				if (!success.localeCompare("Failed")) 
 				{
-					document.getElementById("signupResult").innerHTML = "Login Name taken.";
+					window.alert("Login Name taken");
 					return;
 				}
 
@@ -126,25 +126,25 @@ function doSignUp()
 								lastName = jsonObject.lastName;
 								saveCookie();
 				
-								window.location.href = "test.php";
+								window.location.href = "index.html";
+								window.alert("Account Created");
 							}
 						};
 						xhr.send(jsonCargo);
 					}
 				
 					catch(err) {
-						document.getElementById("signupResult").innerHTML = err.message;
+						window.alert("Error in SignUp");
 					}
 				}
 			}
 		};
 		xhr.send(jsonCargo);
-		window.alert("Registration Success");
 	}
 
 	catch(err) {
 		window.alert("Registration Failed");
-		document.getElementById("signupResult").innerHTML = err.message;
+		window.alert("Error SignUp");
 	}
 
 }
@@ -191,7 +191,7 @@ function readCookie()
 	}
 	else
 	{
-		document.getElementById("userName").innerHTML = "Welcome, " + firstname + " " + lastname + " " + userid + "!";
+		//document.getElementById("userName").innerHTML = "Welcome, " + firstname + " " + lastname + " " + userid + "!";
 	}
 }
 
@@ -213,12 +213,8 @@ function addContact()
 	
 	if (newname == "" || newemail == "" || newphone == "")
 	{
-		document.getElementById("addResult").innerHTML = "All fields are required.";
+		window.alert("All Field Required");
 		return;
-	}
-	else
-	{
-		document.getElementById("addResult").innerHTML = "";
 	}
 
 	
@@ -235,26 +231,25 @@ function addContact()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("addResult").innerHTML = "Contact has been added";
+				window.alert("Contact has been added");
+				loadContacts();
 			}
 		};
 		xhr.send(jsonCargo);
 	}
 	catch(err)
 	{
-		document.getElementById("addResult").innerHTML = err.message;
+		window.alert("Error in adding contact");
 	}
 	
 }
 
 function doSearch()
 {
-	let srch = document.getElementById("searchText").value;
-	document.getElementById("searchResult").innerHTML = "";
+	let srch = document.getElementById("bar").value;
 	
-	let contactList = "";
 
-	let jsonCargo = '{"search" : "' + srch + '", "userid " : ' + userid + '}';
+	let jsonCargo = '{"search" : "' + srch + '", "userid" : ' + userid + '}';
 
 	let url = urlBase + '/LAMPAPI/Search.' + extension;
 	
@@ -267,35 +262,53 @@ function doSearch()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("searchResult").innerHTML = "Contact(s) has been retrieved";
 				let jsonObject = JSON.parse( xhr.responseText );
-				
+				if (jsonObject.error) 
+				{
+                    console.log(jsonObject.error);
+					let text = ""
+					document.getElementById("tbody").innerHTML = text;
+					return;
+                }
+				console.log("Hello!");
+				let text = "<table>"
+				text+= "<tr id='addrow'>"
+				text += "<td ><span>" + "" + "</span></td>";
+				text += "<td ><span>" + "<button id = 'newAddBtn' onclick='addContact()'>Add Contact</button>" + "</span></td>";
+				text += "<td id = 'aContactName'><span><input type='text' id='newname' placeholder='ContactName'></span></td>";
+				text += "<td id = 'aEmail'><span><input type='text' id='newemail' placeholder='Email'></span></td>";
+                text += "<td id = 'aPhone'><span><input type='text' id='newphone' placeholder='Phone'></span></td>";
 				for( let i=0; i<jsonObject.results.length; i++ )
 				{
 					var fooid = jsonObject.results[i].id;
-					var foocid = jsonObject.results[i].cid;
+					var foocid = jsonObject.results[i].CID;
 					var foocontactname = jsonObject.results[i].contactname;
 					var fooEmail = jsonObject.results[i].email;
 					var fooPhone = jsonObject.results[i].phone;
 
-					contactList += "Name: " + foocontactname + "<br>" + "Email: " + fooEmail + "<br>" + "Phone: " + fooPhone + "<br>";
+					text += "<tr id='row" + i + "'>"
+					text += "<td ><span>" + "" + "</span></td>";
+					text += "<td id='cid" + i + "'><span>" + foocid + "</span></td>";
+                    text += "<td id='contact_name" + i + "'><span>" + foocontactname + "</span></td>";
+                    text += "<td id='email" + i + "'><span>" + fooEmail + "</span></td>";
+                    text += "<td id='phone" + i + "'><span>" + fooPhone + "</span></td>";
+					text += "<td id='edit_button" + i + "'>" +  "<button id = 'pencil' type = 'button' onclick='editRow("+ i +")'><img src = 'images/pen.png' alt = 'pen'></button>"+ "</td>";
+					text += "<td id='trash_button" + i + "'>" + "<button id = 'trashCan' type = 'button' onclick='deleteContact("+ foocid +")'><img src = 'images/bxs-trash-alt.png' alt = 'trashcan'></button>" + "</td>";
+					text += "<td id='save" + i + "' style='display: none'>" +  "<button id = 'pencil' type = 'button' onclick='updateContact("+ i +"," + foocid + ")'><img src = 'images/pen.png' alt = 'pen'></button>" + "</td>";
 
-					//  This is where you put the edit button and or delete button
-
-					if( i < jsonObject.results.length - 1 )
-					{
-						contactList += "<br />\r\n";
-					}
+					// "<button type='button' onclick='delete_row(" + i + ")>" + '<img src= "./images/bxs-trash-alt.png" alt= "WhiteCan"/>' +"</button>";
+					text += "<tr/>"
 				}
 				
-				document.getElementsByTagName("p")[0].innerHTML = contactList;
+				text += "</table>"
+                document.getElementById("tbody").innerHTML = text;
 			}
 		};
 		xhr.send(jsonCargo);
 	}
 	catch(err)
 	{
-		document.getElementById("searchResult").innerHTML = err.message;
+		window.alert("Error in Search");
 	}
 	
 }
@@ -310,7 +323,7 @@ function updateContact()
 
 	if (newcontactname == "" || newemail == "" || newphone == "")
 	{
-		document.getElementById("editResult").innerHTML = "All fields are required.";
+		window.alert("All Field Required");
 		return;
 	}
 	else
@@ -330,25 +343,22 @@ function updateContact()
 			{
 				if (this.readyState == 4 && this.status == 200) 
 				{
-					document.getElementById("editResult").innerHTML = "Contact has been edited";
+					document.getElementById("editResult").innerHTML = "Contact Has Been Edited";
 				}
 			};
 			xhr.send(jsonCargo);
 		}
 		catch(err)
 		{
-			document.getElementById("editResult").innerHTML = err.message;
+			window.alert("Error in Edit");
 		}
 
 	}
 }
 
 //function deleteContact(index, deleteid)
-function deleteContact()
+function deleteContact(deleteid)
 {
-
-	let deleteid = document.getElementById("DelCID").value;
-
 	let jsonCargo = '{"userid" : "' + userid + '", "cid" : "' + deleteid +'"}';
 
 	let url = urlBase + '/LAMPAPI/Delete.' + extension;
@@ -362,14 +372,178 @@ function deleteContact()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("deleteResult").innerHTML = "Contact has been deleted";
+				window.alert("Contact Has Been Deleted");
+				loadContacts();
 			}
 		};
 		xhr.send(jsonCargo);
 	}
 	catch(err)
 	{
-		document.getElementById("deleteResult").innerHTML = "Contact delete Error";
+		window.alert("Delete ");
 	}
 	
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 												Portal scripts											  //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function loadContacts()
+{
+	
+	let tmp =
+	{
+		search: "",
+		userid: userid
+	};
+
+	let jsonCargo = JSON.stringify(tmp);
+
+	let url = urlBase + '/LAMPAPI/Search.' + extension;
+	
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				let jsonObject = JSON.parse( xhr.responseText );
+				if (jsonObject.error) 
+				{
+                    console.log(jsonObject.error);
+                    return;
+                }
+				var foocid = jsonObject.results.CID;
+				let text = "<table>"
+				text+= "<tr id='addrow'>"
+				text += "<td ><span>" + "" + "</span></td>";
+				text += "<td ><span>" + "<button id = 'newAddBtn' onclick='addContact()'>Add Contact</button>" + "</span></td>";
+				text += "<td id = 'aContactName'><span><input type='text' id='newname' placeholder='ContactName'></span></td>";
+				text += "<td id = 'aEmail'><span><input type='text' id='newemail' placeholder='Email'></span></td>";
+                text += "<td id = 'aPhone'><span><input type='text' id='newphone' placeholder='Phone'></span></td>";
+				for( let i=0; i<jsonObject.results.length; i++ )
+				{
+					var fooid = jsonObject.results[i].id;
+					var foocid = jsonObject.results[i].CID;
+					var foocontactname = jsonObject.results[i].contactname;
+					var fooEmail = jsonObject.results[i].email;
+					var fooPhone = jsonObject.results[i].phone;
+
+					text += "<tr id='row" + i + "'>"
+					text += "<td ><span>" + "" + "</span></td>";
+					text += "<td id='cid" + i + "'><span>" + foocid + "</span></td>";
+                    text += "<td id='contact_name" + i + "'><span>" + foocontactname + "</span></td>";
+                    text += "<td id='email" + i + "'><span>" + fooEmail + "</span></td>";
+                    text += "<td id='phone" + i + "'><span>" + fooPhone + "</span></td>";
+					text += "<td id='edit_button" + i + "'>" +  "<button id = 'pencil' type = 'button' onclick='editRow("+ i +")'><img src = 'images/pen.png' alt = 'pen'></button>"+ "</td>";
+					text += "<td id='trash_button" + i + "'>" + "<button id = 'trashCan' type = 'button' onclick='deleteContact("+ foocid +")'><img src = 'images/bxs-trash-alt.png' alt = 'trashcan'></button>" + "</td>";
+					text += "<td id='save" + i + "' style='display: none'>" +  "<button id = 'pencil' type = 'button' onclick='updateContact("+ i +"," + foocid + ")'><img src = 'images/save3.jpeg' alt = 'pen' id = 'save'></button>" + "</td>";
+
+					// "<button type='button' onclick='delete_row(" + i + ")>" + '<img src= "./images/bxs-trash-alt.png" alt= "WhiteCan"/>' +"</button>";
+					text += "<tr/>"
+				}
+				
+				text += "</table>"
+                document.getElementById("tbody").innerHTML = text;
+			}
+		};
+		xhr.send(jsonCargo);
+	}
+	catch(err)
+	{
+		window.alert("Error in Search");
+	}
+	
+}
+
+function editRow(i)
+{
+    document.getElementById("save" + i).style.display = "inline-block";
+
+	var contactInput = document.getElementById("contact_name" + i);
+	var emailInput = document.getElementById("email" + i);
+	var phoneInput = document.getElementById("phone" + i);
+
+	var contactData = contactInput.innerText;
+	var emailData = emailInput.innerText;
+	var phoneData = phoneInput.innerText;
+	contactInput.innerHTML = "<input type='text' id='contactText" + i + "' value='" + contactData + "'>";
+	emailInput.innerHTML = "<input type='text' id='emailText" + i + "' value='" + emailData + "'>";
+	phoneInput.innerHTML = "<input type='text' id='phoneText" + i + "' value='" + phoneData + "'>";
+}
+
+
+function updateContact(i,cid)
+{
+	let newcontactname = document.getElementById("contactText" + i).value;
+	let newemail = document.getElementById("emailText" + i).value;
+	let newphone = document.getElementById("phoneText" + i).value;
+	document.getElementById("save" + i).style.display = "none";
+
+	document.getElementById("contact_name" + i).innerHTML = newcontactname;
+	document.getElementById("email" + i).innerHTML = newemail;
+	document.getElementById("phone" + i).innerHTML = newphone;
+
+	
+
+	if (newcontactname == "" || newemail == "" || newphone == "")
+	{
+		window.alert("All Field Required");
+		loadContacts();
+		return;
+	}
+	else
+	{
+		let jsonCargo = '{"ContactName" : "' + newcontactname + '", "Email" : "' + newemail + '", "Phone" : "' + newphone + '", "ID" : "' + userid + '", "cid" : "' + cid + '"}';
+
+		let url = urlBase + '/LAMPAPI/Update.' + extension;
+	
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+		try
+		{
+			xhr.onreadystatechange = function() 
+			{
+				if (this.readyState == 4 && this.status == 200) 
+				{
+					window.alert("Contact has been updated");
+				}
+			};
+			xhr.send(jsonCargo);
+		}
+		catch(err)
+		{
+			window.alert("Error in Updating");
+		}
+
+	}
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Your JavaScript code here
+
+    const searchInput = document.getElementById("bar");
+    const searchIcon = document.getElementById("search-icon");
+
+    searchInput.addEventListener("focus", function() {
+        searchInput.placeholder = "";
+    
+    });
+
+    searchInput.addEventListener("blur", function() {
+        if (searchInput.value === "") {
+            searchInput.placeholder = "Search...";
+   
+        }
+    });
+});
+
+// PORTALSCRIPT

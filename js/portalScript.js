@@ -60,22 +60,5 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const searchInput = document.getElementById("search-input");
-        const searchIcon = document.getElementById("search-icon");
-        
-        searchInput.addEventListener("focus", function() {
-          searchInput.placeholder = "";
-          searchIcon.style.display = "none";
-        });
-        
-        searchInput.addEventListener("blur", function() {
-          if (searchInput.value === "") {
-            searchInput.placeholder = "Search...";
-            searchIcon.style.display = "block";
-          }
-        });
-      });
-
+    
 });

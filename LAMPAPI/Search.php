@@ -5,6 +5,7 @@
 	$searchResults = "";
 	$searchCount = 0;
 	$userid = $inData["userid"];
+	$search = "%" . $inData["search"] . "%";
 
 	$host = "localhost"; // Replace with your database host
     $dbname = "COP4331"; // Replace with your database name
@@ -12,15 +13,14 @@
     $password = "WeLoveCOP4331"; // Replace with your database password
 
     $mysqliCon = new mysqli($host, $username, $password, $dbname);
-	if ($conn->connect_error) 
+	if ($mysqliCon->connect_error) 
 	{
-		returnWithError( $conn->connect_error );
+		returnWithError( $mysqliCon->connect_error );
 	} 
 	else
 	{
-		$stmt = $conn->prepare("SELECT * FROM contacts WHERE (contactname LIKE ? AND userid=?) OR (email LIKE ? AND userid=?) OR (phone LIKE ? AND userid=?)");
-		$search = "%" . $inData["search"] . "%";
-		$stmt->bind_param("ssssss", $search, $userid, $search, $userid, $search, $userid);
+		$stmt = $mysqliCon->prepare("SELECT * FROM Contacts WHERE ((ContactName LIKE ?) OR (Email LIKE ?) OR (Phone LIKE ?)) AND ID = ?");
+		$stmt->bind_param("ssss", $search, $search, $search, $userid);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
@@ -32,12 +32,12 @@
 				$searchResults .= ",";
 			}
 			$searchCount++;
-			$searchResults .= '"' . $row["Name"] . '"';
+			$searchResults .= '{"contactname" : "' . $row["ContactName"]. '", "email" : "' . $row["Email"]. '", "phone" : "' . $row["Phone"]. '", "CID" : "' . $row["CID"]. '"}';
 		}
 		
 		if( $searchCount == 0 )
 		{
-			returnWithError( "No Records Found" );
+			returnWithError( "No Records Found!" );
 		}
 		else
 		{
@@ -45,7 +45,7 @@
 		}
 		
 		$stmt->close();
-		$conn->close();
+		$mysqliCon->close();
 	}
 
 	function getRequestInfo()

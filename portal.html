@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel = "stylesheet" href = "css/style.css">
-        <p id = "name">TEKBOOKS</p>
-        <img id = "logo" src="./images/person-circle.png" alt="logo">
-        <div id = "backer" class = "rectangle"></div>
-    </head>
-
-    <body>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="scripts/bootstrap.min.js"></script>
-        <script src="scripts/script.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/code.js"></script>
+        <script>src="js/portalScript.js"</script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel = "stylesheet" href = "css/portalStyle.css">
+        <div class = "logo">TEKBOOKS</div>
+        <span id="userName"></span><br>
+        <div id = "backer" class = "rectangle"></div>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () 
+            {
+                readCookie();
+                loadContacts();
+            }
+            , false);
+        </script>
+    </head>
+    
+    <body>
+        <!-- <div id = "blackTable" class = "table-container"> -->
+        <div class = "table-wrapper">
             <table id="editableTable">
                 <thead>
-                    <tr id = "hat"></tr>
+                    <tr id = "hat">
+                        <form id="form"> 
+                            <div class="search-container">
+                                <input type="text" id="bar" name="q" placeholder="Search" onkeyup="doSearch()">
+                                <!-- <img id = "search-icon" src="./images/searchIcon.png" alt="Search Icon" class="search-icon"> -->
+                            </div>
+                        </form>
+                    </tr>
+
                     <tr id = "topper" >
-                        <th id = "col1"><img src="./images/Rectangle21.png" alt="whiteButton"></th>
-                        <th id = "col2">ID</th>
-                        <th id = "col3">CONTACT NAME</th>
-                        <th id = "col4">EMAIL</th>
-                        <th id = "col5">PHONE</th>
-                        <th id = "col6"></th>
-                        <th id = "col7"></th>
+                        <th id = "col1" class = "column"></th>
+                        <th id = "col2" class = "column">ID</th>
+                        <th id = "col3" class = "column">CONTACT NAME</th>
+                        <th id = "col4" class = "column">EMAIL</th>
+                        <th id = "col5" class = "column">PHONE</th>
+                        <th id = "col6" class = "column"></th>
+                        <th id = "col7" class = "column"></th>
                     </tr>
                 </thead>
                 <tbody id = "tbody">
                     <!-- Rows will be added dynamically here -->
                 </tbody>
             </table>
-
-        <button id="addRowBtn">
-            <img id = "plusperson"src="./images/person-add.png" alt="addNew">
-              New Contact
-        </button>
-        <script src="script.js"></script>
-
-    <form id="form"> 
-        <div class="search-container">
-            <input type="search" id="bar" name="q" placeholder="Search">
-            <img id = "search-icon" src="./images/searchIcon.png" alt="Search Icon" class="search-icon">
         </div>
-
-      </form>
     </body>
 
 </html>
