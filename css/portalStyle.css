@@ -34,25 +34,54 @@
     height: 30px; 
 }
 
+#logOUT {
+
+    position: relative;
+    left: 80vw;
+
+    width: 173px;
+    height: 42px;
+    border-radius: 17px;
+    background: #FBFBFB;
+
+    color: #323232;
+    text-align: left;
+    padding-left: 43px;
+    font-family: Poppins Variable;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
 #editableTable {
+
     border-collapse: collapse;
     width: 70%; 
     border-radius: 10px;
     background: #323232;
     overflow-x: auto;
     overflow-y: scroll;
-    max-height: 300px;
+    /* max-height: 300px; */
     position: absolute;
     top: 10%; 
     left: 50%; 
     transform: translateX(-50%);
 }
 
-/* tbody {
+thead {
+    display: table;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+tbody {
     display: block;
     overflow-y: scroll;
-    height: 300px;
-} */
+    height: 500px;
+}
 
 #newAddBtn {
     width: 173px;
@@ -103,11 +132,8 @@ th , td {
 #bar {
     position: absolute;
     z-index: 3;
-    margin-left: 0%;
-    margin-top: 0%;
     text-indent: 40px; 
     color: #FBFBFB;
-
     font-family: Poppins Variable;
     font-size: 20px;
     font-style: normal;
@@ -169,6 +195,31 @@ th , td {
 }
 
 #col7 {
+    width: 6%;
+}
+
+#cid2{
+    width: 10%;
+}
+
+#contact_name2{
+    width: 19%;
+}   
+
+#email2{
+    width: 22%;
+}   
+
+#phone2 {
+    width: 22%;
+}
+
+#edit_button2{
+    width: 7%;
+}
+
+trash_button2{
+
     width: 6%;
 }
 

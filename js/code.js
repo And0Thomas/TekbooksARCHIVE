@@ -9,6 +9,10 @@ var edit = 0;
 var firstname ="";
 var lastname ="";
 
+function github()
+{
+	window.location.href = "https://github.com/And0Thomas/TekbooksARCHIVE";
+}
 
 function doLogin()
 {

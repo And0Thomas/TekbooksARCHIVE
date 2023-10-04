@@ -44,7 +44,7 @@ body, input {
     content: '';
     position: absolute;
     width: 2000px;
-    height: 2200px;
+    height: 2800px;
     background: #ddd0c8;
     top: -10%;
     left: 50%;
@@ -219,7 +219,7 @@ form.sign-up-form {
 }
 
 .left-panel .content, .left-panel .image {
-    transform: translate(-800px);
+    transform: translate(-1200px);
 }
 
 /* Animation */
@@ -235,7 +235,7 @@ form.sign-up-form {
 
 .container.sign-up-mode .right-panel .image,
 .container.sign-up-mode .right-panel .content {
-    transform: translateX(800px);
+    transform: translateX(1200px);
 }
 
 .container.sign-up-mode .left-panel .image,
