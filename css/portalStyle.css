@@ -48,11 +48,11 @@
     transform: translateX(-50%);
 }
 
-tbody {
+/* tbody {
     display: block;
     overflow-y: scroll;
     height: 300px;
-}
+} */
 
 #newAddBtn {
     width: 173px;
