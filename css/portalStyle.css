@@ -58,11 +58,13 @@
 
     border-collapse: collapse;
     width: 70%; 
+
     border-radius: 10px;
     background: #323232;
     overflow-x: auto;
     overflow-y: scroll;
     /* max-height: 300px; */
+
     position: absolute;
     top: 10%; 
     left: 50%; 
@@ -198,6 +200,10 @@ th , td {
     width: 6%;
 }
 
+#blank2 {
+    width: 8%;
+}
+
 #cid2{
     width: 10%;
 }
@@ -218,19 +224,23 @@ th , td {
     width: 7%;
 }
 
-trash_button2{
+#trash_button2{
 
     width: 6%;
 }
 
 tr {
     border-top: 1px solid black;
+  
 }
 
 body {
     background-color: #DDD0C8;
 }
 
+#row {
+    
+}
 #save{
     width: 33px;
     height: 3px;
