@@ -22,6 +22,27 @@
     position: absolute;
 }
 
+#logOUT {
+    position: absolute;
+    top: 1.74em;
+    right: 1.525em;
+    text-align: center;
+
+    width: 10.81em;
+    height: 2.625em;
+    border-radius: 1.06em;
+    background: #FBFBFB;
+
+    color: #323232;
+    text-align: left;
+    padding-left: 2.6875em;
+    font-family: Poppins Variable;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
 #pencil , #trashCan{  
     background: none;
     padding: 0;
@@ -34,36 +55,13 @@
     height: 30px; 
 }
 
-#logOUT {
-
-    position: relative;
-    left: 80vw;
-
-    width: 173px;
-    height: 42px;
-    border-radius: 17px;
-    background: #FBFBFB;
-
-    color: #323232;
-    text-align: left;
-    padding-left: 43px;
-    font-family: Poppins Variable;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
 #editableTable {
-
     border-collapse: collapse;
     width: 70%; 
-
     border-radius: 10px;
     background: #323232;
     overflow-x: auto;
     overflow-y: scroll;
-    /* max-height: 300px; */
 
     position: absolute;
     top: 10%; 
@@ -85,26 +83,9 @@ tbody {
     height: 500px;
 }
 
-#newAddBtn {
-    width: 173px;
-    height: 42px;
-    flex-shrink: 0;
-    border-radius: 17px;
-    background: #FBFBFB;
-
-    color: #323232;
-    text-align: left;
-    padding-left: 43px;
-    font-family: Poppins Variable;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
 th , td {
     color: #FBFBFB;
-    padding: 8px;
+    padding: 0.5em;
     text-align: left;
 }
 
@@ -116,7 +97,7 @@ th , td {
 
 #hat {
     border: none;
-    height: 108px;
+    height: 6.75em;
     border-radius: 10px;
     background: #323232;
     z-index: 4;
@@ -126,13 +107,19 @@ th , td {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center horizontally */
+    align-items: center;
     text-align: center;
-    height: 100vh; /* Set the height of the container to the viewport height */
+    height: 100vh; 
 }
 
 #bar {
     position: absolute;
+    width: 25%;
+    height: 45px;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    
     z-index: 3;
     text-indent: 40px; 
     color: #FBFBFB;
@@ -141,10 +128,8 @@ th , td {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    
-    width: 25%;
+
     margin-bottom: 10px;
-    height: 45px; 
     border-radius: 12px;
     border: 2px solid #FBFBFB;
     color: white;
@@ -172,37 +157,63 @@ th , td {
     line-height: normal;
 }
 
-#col1 {
+#newAddBtn {
+    height: 2em;
+    width: 80%;
+    color: #323232;
+    text-align: left;
+    background: #FBFBFB;
+}
+
+#newname, #newemail, #newphone{
+    width: 80%;
+
+    /* border-radius: 1.06em;
+    background: #FBFBFB;
+
+    color: #323232;
+
+    padding-left: .5em;
+    font-family: Poppins Variable;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;     */
+}
+
+
+#col1 .JScol1{
     width: 8%;
 }
 
-#col2 {
+#col2, .JScol2{
     width: 10%;
 }
 
-#col3 {
+#col3, .JScol3 {
     width: 19%;
 }
 
-#col4 {
+#col4, .JScol4 {
     width: 22%;
 }
 
-#col5 {
+#col5, .JScol5{
     width: 22%;
 }
 
-#col6 {
+#col6, .JScol6{
     width: 7%;
 }
 
-#col7 {
+#col7 .JScol7{
     width: 6%;
 }
 
 #blank2 {
     width: 8%;
 }
+
 
 #cid2{
     width: 10%;
@@ -242,6 +253,7 @@ body {
     
 }
 #save{
-    width: 33px;
-    height: 3px;
+    width: 2em;
+    height: 2em;
+
 }

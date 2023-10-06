@@ -298,7 +298,7 @@ function doSearch()
                     text += "<td id='phone" + i + "'><span>" + fooPhone + "</span></td>";
 					text += "<td id='edit_button" + i + "'>" +  "<button id = 'pencil' type = 'button' onclick='editRow("+ i +")'><img src = 'images/pen.png' alt = 'pen'></button>"+ "</td>";
 					text += "<td id='trash_button" + i + "'>" + "<button id = 'trashCan' type = 'button' onclick='deleteContact("+ foocid +")'><img src = 'images/bxs-trash-alt.png' alt = 'trashcan'></button>" + "</td>";
-					text += "<td id='save" + i + "' style='display: none'>" +  "<button id = 'pencil' type = 'button' onclick='updateContact("+ i +"," + foocid + ")'><img src = 'images/pen.png' alt = 'pen'></button>" + "</td>";
+					text += "<td id='save" + i + "' style='display: none'>" +  "<button id = 'pencil' type = 'button' onclick='updateContact("+ i +"," + foocid + ")'><img src = 'images/save5.png' alt = 'pen'></button>" + "</td>";
 
 					// "<button type='button' onclick='delete_row(" + i + ")>" + '<img src= "./images/bxs-trash-alt.png" alt= "WhiteCan"/>' +"</button>";
 					text += "<tr/>"
@@ -429,7 +429,7 @@ function loadContacts()
 				text+= "<tr id='addrow'>"
 				text += "<td ><span>" + "" + "</span></td>";
 				text += "<td ><span>" + "<button id = 'newAddBtn' onclick='addContact()'>Add Contact</button>" + "</span></td>";
-				text += "<td id = 'aContactName'><span><input type='text' id='newname' placeholder='ContactName'></span></td>";
+				text += "<td id = 'aContactName'><span><input type='text' id='newname' placeholder='Contact Name'></span></td>";
 				text += "<td id = 'aEmail'><span><input type='text' id='newemail' placeholder='Email'></span></td>";
                 text += "<td id = 'aPhone'><span><input type='text' id='newphone' placeholder='Phone'></span></td>";
 				for( let i=0; i<jsonObject.results.length; i++ )
@@ -448,7 +448,7 @@ function loadContacts()
                     text += "<td class = 'JScol5' id='phone" + i + "'><span>" + fooPhone + "</span></td>";
 					text += "<td class = 'JScol6' id='edit_button" + i + "'>" +  "<button id = 'pencil' type = 'button' onclick='editRow("+ i +")'><img src = 'images/pen.png' alt = 'pen'></button>"+ "</td>";
 					text += "<td class = 'JScol7 'id='trash_button" + i + "'>" + "<button id = 'trashCan' type = 'button' onclick='deleteContact("+ foocid +")'><img src = 'images/bxs-trash-alt.png' alt = 'trashcan'></button>" + "</td>";
-					text += "<td id='save" + i + "' style='display: none'>" +  "<button id = 'pencil' type = 'button' onclick='updateContact("+ i +"," + foocid + ")'><img src = 'images/save3.jpeg' alt = 'pen' id = 'save'></button>" + "</td>";
+					text += "<td id='save" + i + "' style='display: none'>" +  "<button id = 'pencil' type = 'button' onclick='updateContact("+ i +"," + foocid + ")'><img src = 'images/save5.png' alt = 'pen' id = 'save'></button>" + "</td>";
 
 					// "<button type='button' onclick='delete_row(" + i + ")>" + '<img src= "./images/bxs-trash-alt.png" alt= "WhiteCan"/>' +"</button>";
 					text += "<tr/>"
